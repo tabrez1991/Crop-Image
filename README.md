@@ -22,7 +22,7 @@ $ cordova platform add android
 ```
 ## Screenshot
 
-<p align="center">
+<p>
   <img src="screenshot.png"/>
 </p>
 
