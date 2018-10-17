@@ -21,7 +21,7 @@ $ cordova platform add ios
 $ cordova platform add android
 ```
 
-## Ios
+## IOS
 
 Open your_project_name.xcodeproj
 In index.html copy the following code.
@@ -43,9 +43,9 @@ In index.html copy the following code.
             
             <div class="row">
                 <div class="col-md-4 col-lg-2">
-                    <button class="btn btn-primary  btn-block" id="getimage" onclick="getCamera()" >Take Photo</button>
-                    <button class="btn btn-success  btn-block" id="getimage" onclick="getPicture()" >Get Photo From Library</button>
-                    <button class="btn btn-danger  btn-block" id="getimage" onclick="cropimages()" >Crop Image</button>
+                    <button class="btn btn-primary  btn-block" id="getCamera" onclick="getCamera()" >Take Photo</button>
+                    <button class="btn btn-success  btn-block" id="getPicture" onclick="getPicture()" >Get Photo From Library</button>
+                    <button class="btn btn-danger  btn-block" id="cropImage" onclick="cropimages()" >Crop Image</button>
                 </div><!-- /col -->
             </div><!-- /row -->
             
@@ -111,6 +111,15 @@ Go to the your_project_name-info.plist file and add permission for camera `Priva
 
 Run `$ cordova run ios` to execute the program in your iphone or emulator.
 
+## Android
+
+Open android folder in android studio.
+In index.html copy the same code as above.
+Remove your `index.js` and `index.css` and add `bootstrap.css` in css folder.
+
+## Run
+
+Run `$ cordova run android` to execute the program in your iphone or emulator.
 
 
 
