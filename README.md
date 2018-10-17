@@ -1,7 +1,7 @@
 # Typewritter
 
-### Created By [Mohammad AbdurRaheem](http://mohammad.newspulses.com)
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.8.
+### Created By [Mohammad Tabrez Ansari]
+This project was generated with [cordova-plugin-crop](https://github.com/jeduan/cordova-plugin-crop).
 
 ### Made with :heart: 
 
