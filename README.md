@@ -23,7 +23,7 @@ $ cordova platform add android
 ## Screenshot
 
 <p align="center">
-  <img src="appimage.png"/>
+  <img src="screenshot.png"/>
 </p>
 
 ## IOS
