@@ -1,6 +1,6 @@
-# Typewritter
+# Crop Image
 
-### Created By [Mohammad Tabrez Ansari]
+### Created By Mohammad Tabrez Ansari
 This project was generated with [cordova-plugin-crop](https://github.com/jeduan/cordova-plugin-crop).
 
 ### Made with :heart: 
@@ -10,16 +10,24 @@ This project was generated with [cordova-plugin-crop](https://github.com/jeduan/
 [![TypeScript](https://badges.frapsoft.com/typescript/love/typescript.svg?v=101)](https://github.com/ellerbrock/typescript-badges/)
 [![Build Status](https://travis-ci.org/affilnost/angular5-example-shopping-app.svg?branch=master)](https://travis-ci.org/affilnost/angular5-example-shopping-app.svg?branch=master)
 
-## Development server
+## Create your Cordova Project
 
- Go to project folder and install dependencies.
+ Go to terminal and run.
  ```bash
- npm install
+ cordova create your_project_name
  ```
- 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
+ Now add plugins.
+ ```bash
+ $ cd your_project_name
+ $ cordova plugin add cordova-plugin-crop
+ $ cordova plugin add cordova-plugin-camera
+ ```
+Add your platform.
+```bash
+$ cordova platform add ios
+$ cordova platform add android
+```
+## 
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
