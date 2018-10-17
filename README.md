@@ -107,7 +107,7 @@ Remove your `index.js` and `index.css` and add `bootstrap.css` in css folder.
 
 Go to the your_project_name-info.plist file and add permission for camera `Privacy - Camera Usage Description`.
 
-## Run
+## Run ios
 
 Run `$ cordova run ios` to execute the program in your iphone or emulator.
 
@@ -117,9 +117,9 @@ Open android folder in android studio.
 In index.html copy the same code as above.
 Remove your `index.js` and `index.css` and add `bootstrap.css` in css folder.
 
-## Run
+## Run android
 
-Run `$ cordova run android` to execute the program in your iphone or emulator.
+Run `$ cordova run android` to execute the program in your android phone or emulator.
 
 
 
