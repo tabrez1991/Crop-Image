@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <title>Crop Image</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container my-5">
+            <h1>Crop Image</h1>
+            
+            <div class="row">
+                <div class="col-md-4 col-lg-2">
+                    <button class="btn btn-primary  btn-block" id="getimage" onclick="getCamera()" >Take Photo</button>
+                    <button class="btn btn-success  btn-block" id="getimage" onclick="getPicture()" >Get Photo From Library</button>
+                    <button class="btn btn-danger  btn-block" id="getimage" onclick="cropimages()" >Crop Image</button>
+                </div><!-- /col -->
+            </div><!-- /row -->
+            
+            <div align="center">
+                <hr>
+                <image src="img/Placeholder.png" id="myImage" style="width:300px;height:300px;"/>
+            </div>
+        </div><!-- /container -->
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript">
+            /** Device Ready */
+            document.addEventListener('deviceready',function(){ navigator.splashscreen.hide(); },false);
+        
+            /** Camera */
+            function getCamera(){
+                navigator.camera.getPicture(onCameraSuccess, onFailed, { quality: 50,
+                                            destinationType: Camera.DestinationType.FILE_URI
+                                            });
+            }
+            function onCameraSuccess(imageData){
+                console.log(imageData);
+                var image = document.getElementById('myImage');
+                image.src = imageData;
+            }
+            function onFailed(message) {
+                alert('Failed because: ' + message);
+            }
+            /* Get Photo from Library */
+            function getPicture(){
+                navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
+                                            sourceType: Camera.PictureSourceType.PHOTOLIBRARY});
+            }
+            function onSuccess(imageData){
+                console.log(imageData);
+                var image = document.getElementById('myImage');
+                image.src = imageData;
+            }
+            function onFail(message) {
+                alert('Failed because: ' + message);
+            }
+            /* Crop Image */
+            function cropimages(){
+                var image = document.getElementById('myImage');
+                plugins.crop(function success (data) {
+                             console.log(data);
+                             var image = document.getElementById('myImage');
+                             image.src = data;
+                             },
+                             function fail () {
+                             }, image.src, {quality:100});
+            }
+        </script>
+    </body>
+</html>
