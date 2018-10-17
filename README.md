@@ -3,14 +3,7 @@
 ### Created By Mohammad Tabrez Ansari
 This project was generated with [cordova-plugin-crop](https://github.com/jeduan/cordova-plugin-crop).
 
-### Made with :heart: 
-
-[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
-[![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
-[![TypeScript](https://badges.frapsoft.com/typescript/love/typescript.svg?v=101)](https://github.com/ellerbrock/typescript-badges/)
-[![Build Status](https://travis-ci.org/affilnost/angular5-example-shopping-app.svg?branch=master)](https://travis-ci.org/affilnost/angular5-example-shopping-app.svg?branch=master)
-
-## Create your Cordova Project
+## Create your cordova project
 
  Go to terminal and run.
  ```bash
@@ -27,22 +20,97 @@ Add your platform.
 $ cordova platform add ios
 $ cordova platform add android
 ```
-## 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Ios
 
-## Build
+Open your_project_name.xcodeproj
+In index.html copy the following code.
+```bash
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <title>Crop Image</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container my-5">
+            <h1>Crop Image</h1>
+            
+            <div class="row">
+                <div class="col-md-4 col-lg-2">
+                    <button class="btn btn-primary  btn-block" id="getimage" onclick="getCamera()" >Take Photo</button>
+                    <button class="btn btn-success  btn-block" id="getimage" onclick="getPicture()" >Get Photo From Library</button>
+                    <button class="btn btn-danger  btn-block" id="getimage" onclick="cropimages()" >Crop Image</button>
+                </div><!-- /col -->
+            </div><!-- /row -->
+            
+            <div align="center">
+                <hr>
+                <image src="img/Placeholder.png" id="myImage" style="width:300px;height:300px;"/>
+            </div>
+        </div><!-- /container -->
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript">
+            /** Device Ready */
+            document.addEventListener('deviceready',function(){ navigator.splashscreen.hide(); },false);
+        
+            /** Camera */
+            function getCamera(){
+                navigator.camera.getPicture(onCameraSuccess, onFailed, { quality: 50,
+                                            destinationType: Camera.DestinationType.FILE_URI
+                                            });
+            }
+            function onCameraSuccess(imageData){
+                console.log(imageData);
+                var image = document.getElementById('myImage');
+                image.src = imageData;
+            }
+            function onFailed(message) {
+                alert('Failed because: ' + message);
+            }
+            /* Get Photo from Library */
+            function getPicture(){
+                navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
+                                            sourceType: Camera.PictureSourceType.PHOTOLIBRARY});
+            }
+            function onSuccess(imageData){
+                console.log(imageData);
+                var image = document.getElementById('myImage');
+                image.src = imageData;
+            }
+            function onFail(message) {
+                alert('Failed because: ' + message);
+            }
+            /* Crop Image */
+            function cropimages(){
+                var image = document.getElementById('myImage');
+                plugins.crop(function success (data) {
+                             console.log(data);
+                             var image = document.getElementById('myImage');
+                             image.src = data;
+                             },
+                             function fail () {
+                             }, image.src, {quality:100});
+            }
+        </script>
+    </body>
+</html>
+```
+Remove your `index.js` and `index.css` and add `bootstrap.css` in css folder.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+## Permission
 
-## Running unit tests
+Go to the your_project_name-info.plist file and add permission for camera `Privacy - Camera Usage Description`.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Run
 
-## Running end-to-end tests
+Run `$ cordova run ios` to execute the program in your iphone or emulator.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
