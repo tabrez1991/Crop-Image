@@ -22,7 +22,9 @@ $ cordova platform add android
 ```
 ## Screenshot
 
-![alt appimage](https://github.com/tabrez1991/Crop-Image/blob/master/appimage.png)
+<p align="center">
+  <img src="appimage.png"/>
+</p>
 
 ## IOS
 
