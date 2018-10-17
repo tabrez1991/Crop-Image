@@ -21,7 +21,8 @@ $ cordova platform add ios
 $ cordova platform add android
 ```
 ## Screenshot
-![alt text](https://github.com/tabrez1991/Crop-Image/blob/master/appimage.png)
+
+![alt appimage](https://github.com/tabrez1991/Crop-Image/blob/master/appimage.png)
 
 ## IOS
 
